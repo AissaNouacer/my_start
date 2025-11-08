@@ -46,7 +46,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile.dev
-    command: celery -A delivery_platform worker -l info
+    command: celery -A core worker -l info
     volumes:
       - ./backend:/app
     env_file:
@@ -60,7 +60,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile.dev
-    command: celery -A delivery_platform beat -l info
+    command: celery -A core beat -l info
     volumes:
       - ./backend:/app
     env_file:
